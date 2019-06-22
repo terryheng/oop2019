@@ -13,13 +13,16 @@ import java.util.Scanner;
  */
 public class Project2019 {
 
-    /**
-     * @param args the command line arguments
-     */
+        static String password, loginPass, username, loginUser;
+    static boolean login = true;
+    static boolean checkvalid = false;
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-       
-        System.out.println("+-------------------------+");
+    Scanner sc = new Scanner(System.in);
+        int option=0;
+        String name;
+        String pass;
+        while (option==0){
+            System.out.println("+-------------------------+");
         System.out.println("|   1" + "\t|" + "Sign Up          |");
         System.out.println("|-------------------------+");
         System.out.println("|   2" + "\t|" + "Sign In          |");
@@ -27,57 +30,63 @@ public class Project2019 {
         System.out.println("|   3" + "\t|" + "Exit             |");
         System.out.println("+-------------------------+");
         System.out.println("Your selection:");
-        int selection = input.nextInt();
-   
- // Sign up       
+        int num = sc.nextInt();
+ // Sign up  
+           switch (num) {
+           case (1): {
+                 System.out.println("Enter a desired username: \n");
+                 username = sc.next();
+
+                System.out.println("Enter a desired password: \n");
+                password = sc.next();
+
+               System.out.println("Thank you, please log in.\n");
+               }
+               System.out.println("Press 0 to main menu");
+               option=sc.nextInt();
+               break;     
 // Login page    
    
-    String Username;
-    String Password;
+           case (2): {
+          while (login) {
+        checkvalid = false;
+        System.out.println(" ------------------ \n" + "Username: \n");
+        loginUser = sc.next();
+        System.out.println("Password: \n");
+        loginPass = sc.next();
 
-    Password = "123";
-    Username = "123";
-
-    Scanner input1 = new Scanner(System.in);
-    System.out.println("Enter Username : ");
-    String username = input1.next();
-
-    Scanner input2 = new Scanner(System.in);
-    System.out.println("Enter Password : ");
-    String password = input2.next();
-
-    if (username.equals(Username) && password.equals(Password)) {
-
-        System.out.println("Access Granted! Welcome!");
+        if (loginUser.equals(username) && (loginPass.equals(password))) {
+            checkvalid = true;
+            login = false;
+            System.out.println("You have logged in.");
+        } else {
+            checkvalid = false;
+            System.out.println("Incorrect username or password");
+        }
+      }
+          
     }
-
-    else if (username.equals(Username)) {
-        System.out.println("Invalid Password!");
-    } else if (password.equals(Password)) {
-        System.out.println("Invalid Username!");
-    } else {
-        System.out.println("Invalid Username & Password!");
-    }
-    
-    
-    //Main
-       
+           // Main Program
         System.out.println("+----------------------------------+");
         System.out.println("|-----------  PROGRAM  ------------|");
         System.out.println("+----------------------------------+");
         System.out.println("Please Enter the Following Detail :");
         System.out.print("Name:");
-        String name = input.next();
+        name = sc.next();
         System.out.println("Module:");
-        String module = input.next();
-        String module2 = input.next();
+        String module = sc.next();
+        String module2 = sc.next();
         System.out.println("+-------------------------------+");
         System.out.println("|     The Module Registered     |");
         System.out.println("+-------------------------------+");
         System.out.println("| 1.| " + module + "                         |");
-        System.out.println("| 2.| " + module2  + "                         |");
-        System.out.println("+-------------------------------+");
+        System.out.println("| 2.| " + module2  + "                       |");
+        System.out.println("+-------------------------------+");    
+  }
+        
+ }
+        
+ }
 }
-    }
-    
+
 
