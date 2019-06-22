@@ -12,15 +12,17 @@ import java.util.Scanner;
  * @author USER
  */
 public class Project2019 {
-
-        static String password, loginPass, username, loginUser;
+static String password, loginPass, username, loginUser;
     static boolean login = true;
     static boolean checkvalid = false;
     public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
+    Scanner read=new Scanner(System.in);
+        ArrayList<String>Module=new ArrayList<String>();
         int option=0;
         String name;
         String pass;
+        outerloop:
         while (option==0){
             System.out.println("+-------------------------+");
         System.out.println("|   1" + "\t|" + "Sign Up          |");
@@ -66,27 +68,22 @@ public class Project2019 {
       }
           
     }
-           // Main Program
+   // Main Program
         System.out.println("+----------------------------------+");
         System.out.println("|-----------  PROGRAM  ------------|");
         System.out.println("+----------------------------------+");
         System.out.println("Please Enter the Following Detail :");
         System.out.print("Name:");
         name = sc.next();
-        System.out.println("Module:");
-        String module = sc.next();
-        String module2 = sc.next();
-        System.out.println("+-------------------------------+");
-        System.out.println("|     The Module Registered     |");
-        System.out.println("+-------------------------------+");
-        System.out.println("| 1.| " + module + "                         |");
-        System.out.println("| 2.| " + module2  + "                       |");
-        System.out.println("+-------------------------------+");    
-  }
-        
+        for(int counter=0; counter<5; counter++){
+            System.out.println("Please enter your module");
+            String module = read.nextLine();
+            Module.add(module);
+        }
+        for (String module: Module){
+            System.out.println("Modules = "+ module);
+        }break outerloop;
  }
-        
- }
+        }
+    }
 }
-
-
